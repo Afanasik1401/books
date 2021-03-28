@@ -1,0 +1,40 @@
+<div class="grid-x grid-margin-x">
+  <div class="cell large-12">
+  <div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">Сайт с книжечками и канцтоварами</li>
+      <li><a href="<%=all_path  %>">Главная</a></li>
+      <li><a href="<%= all_books_path %>">Книжечки</a></li>
+      <li><a href="<%= all_stationery_path %>">Канцтовары</a></li>
+       <li><a href="<%=all_lists_path  %>">Списки покупок</a></li>
+    </ul>
+  </div>
+</div>
+    <h3>Список канцтоваров</h3>
+    <a href="<%= stationery_new_path %>" class="button">
+      Добавить
+    </a> 
+  </div>
+  <% if @stationerys.size == 0 %>
+    <div class="cell large-12 callout warning">
+      В приложении нет информации о канцтоварах
+    </div>
+  <% else%>
+    <% @stationerys.each do |stationery| %>
+    <%if stationery.number !=0 %>
+      <div class="card cell large-4">
+        <div class="card-divider">
+          <%= stationery.title %>
+        </div>
+        <div class="card-section">
+           <p><%= stationery.price %></p>    
+           <p>
+            <a class="button" href="<%= path(stationery) %>">Информация о  <%= stationery.title %></a>
+          <p>
+        </div>
+      </div>
+    <% end %>
+     <% end %>
+  <% end %>
+</div>

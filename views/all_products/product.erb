@@ -1,0 +1,15 @@
+<div class="grid-x">
+  <div class="cell large-12">
+    <h3>Информация о товаре</h3>
+<% if  @product.class==Book%>
+    <p>Название: <%= @product.title %></p>
+    <p>Автор: <%= @product.author %></p>
+    <p>Жанр <%= @product.genre %></p>
+    <p>Цена <%= @product.price %></p>
+    <% elsif  @product.class==Stationery%>
+     <p>Название: <%= @product.title %></p>
+    <p>Цена: <%= @product.price %></p> 
+  <% end %>
+  <a class="button secondary" href="<%= path(@lists) %>">Назад к списку </a>
+  </div>
+</div>

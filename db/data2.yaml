@@ -1,0 +1,16 @@
+---
+:shopping_list:
+- :name: MyLIst
+  :id: 1
+:book:
+  - :id: 1
+    :title: Портрет Дориана Грея
+    :author: Оскар Уайльд
+    :genre: Художественная литература 
+    :price: 1200
+    :number: 29
+:stationery:
+  - :id: 2
+    :title: Ручка синяя
+    :price: 17
+    :number: 150

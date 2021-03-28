@@ -1,0 +1,37 @@
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">Сайт с книжечками и канцтоварами</li>
+       <li><a href="<%=all_path  %>">Главная</a></li>
+      <li><a href="<%= all_books_path %>">Книжечки</a></li>
+      <li><a href="<%= all_stationery_path %>">Канцтовары</a></li>
+      <li><a href="<%=all_lists_path  %>">Списки покупок</a></li>
+    </ul>
+  </div></div>
+  <div class="grid-x grid-padding-x">
+ <p>Это наш магазинчик с канцелярией и книжечками.</p>
+    <p>  Ниже приведена статистика книг по жанрам.</p>
+    <p>  </p>
+    <table>
+  <thead>
+    <tr>
+      <th width="150">Жанр</th>
+      <th width="50">Количество книг</th>
+      <th width="50">Средняя стоимость</th>
+      <th width="150">Суммарное колиечество экземпляров</th>
+      <th width="150">Процент количества экземпляров</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @books.genres.each do |genre| %>
+    <tr>
+      <td><%= genre %></td>
+      <td><%= @books.number_by_genre(genre) %> </td>
+      <td><%= (@books.average_cost(genre)/@books.number_by_genre(genre)).round(2) %></td>
+      <td><%=@books.amount_by_genre(genre)%></td>
+      <td><%=(((@books.amount_by_genre(genre)).to_f/((@books.amount)+@stationerys.amount).to_f)*100).round(2)%>%</td>
+    </tr>
+     <% end %>
+  </tbody>
+</table>
+      </div>

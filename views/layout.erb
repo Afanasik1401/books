@@ -1,0 +1,35 @@
+<!doctype html>
+<html class="no-js" lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book&Pen</title>
+    <link rel="stylesheet" href="/css/foundation.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <style>
+   body {
+    background: #FBEFF2; /* Цвет фона */
+    color: #2A0A22; /* Цвет текста */
+   }
+   .button{background: #E2A9F3;}
+   .card-divider{background: #ECCEF5;}
+   .dropdown menu li{background: #ECCEF5}
+   .card-section{background:#FBFBEF }
+   .h2{color: #FBFBEF;}
+  </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+          <h2>Наш магазинчик с книжечками и канцтоварами</h2>
+        </div>
+      </div>
+      <%= yield %>
+    </div>
+    <script src="/js/vendor/jquery.js"></script>
+    <script src="/js/vendor/what-input.js"></script>
+    <script src="/js/vendor/foundation.js"></script>
+  </body>
+</html>

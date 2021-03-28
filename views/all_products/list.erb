@@ -1,0 +1,70 @@
+<div class="grid-x grid-margin-x">
+  <div class="cell large-12">
+  <div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">Сайт с книжечками и канцтоварами</li>
+      <li><a href="<%=all_path  %>">Главная</a></li>
+      <li><a href="<%= all_books_path %>">Книжечки</a></li>
+      <li><a href="<%= all_stationery_path %>">Канцтовары</a></li>
+       <li><a href="<%=all_lists_path  %>">Списки покупок</a></li>
+    </ul>
+  </div>
+  </div>
+ <div class="large-12 cell">
+ <% if (@lists==nil)%> 
+  <div class="cell large-12 callout warning">
+      Списка не существует
+    </div>
+    <% else%>
+ <% if @lists.all_products.size==0 %>
+ <div class="cell large-12 callout warning">
+      В списке покупок нет ни одной покупки   
+    </div>
+       <div class="large-12 cell">
+     <a class="button" href="<%= path(@lists, 'delete') %>">Удалить список</a>
+</div>
+    <% else%>
+    <h3><%= @lists.name %> (количество покупок: <%= @lists.all_products.size %>)</h3>
+     <% price=0%>
+    <% for i in 1..@lists.all_products.size %>
+    <%if @lists.product_by_id(i) %>
+    <%price=price+@lists.product_by_id(i).price %>
+     <% end %>
+      <% end %>
+      <h4>Общая стоимость: <%= price %> </h4>
+    </div>
+    <ol> 
+    <%@names.each do |name|%> 
+<li> <%= name %> (<%=@lists.number_by_name(name)  %>)</li> 
+<% end %> 
+</ol> 
+       <div class="large-6 cell">
+     <a class="button" href="<%= path(@lists, 'delete') %>">Удалить список</a>
+     <a class="button" href="<%= path(@lists, 'pay') %>">Оформить заказ</a>
+</div>
+ </div>
+
+     <% for i in 1..@lists.size   %>
+      <% if @lists.product_by_id(i)%>
+     
+      <div class="card cell large-4">
+        <div class="card-divider">
+          <%= @lists.product_by_id(i).title %>
+        </div>
+        <div class="card-section">
+           <p><%= @lists.product_by_id(i).price%></p>   
+               <div class="large-6 cell"> 
+            <p>          
+            <a class="button" href="<%=path(@lists, 'inf',i) %>" > Информация о товаре</a>
+            <a class="button" href="<%= path(@lists, 'del', i )%>">Удалить товар из списка</a>
+          </p>  
+          </div>
+          </div>
+        </div> 
+      <% end %> 
+      <% end %>   
+        <% end %>
+   <% end %>       
+</div>
+</div>

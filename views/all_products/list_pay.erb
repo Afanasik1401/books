@@ -1,0 +1,24 @@
+<div class="grid-x grid-margin-x">
+  <div class="cell large-12 warning">
+    Вы действительно хотите оплатить список <%= @lists.name %>?
+  </div>
+    <ol> 
+    <%@names.each do |name|%> 
+<li> <%= name %> (<%=@lists.number_by_name(name)  %>)</li> 
+<% end %> 
+</ol> 
+</div>
+<% form({ method: :post },{ obj: @parameters }) do |f| %>
+  <div class="grid-x grid-margin-x">
+  <div class="large-12 cell">
+      <%= f.input(:name, type: :text, label: 'Введите выбранное Вами название покупок', placeholder: 'Мой список покупочек')%>
+    </div>
+    <div class="large-12 cell">
+      <%= f.input(:confirmation, type: :checkbox, label: 'Подтвержаю оплату') %>
+    </div>
+    <div class="large-12 cell">
+      <%= f.button(value: 'Оформить заказ', class: 'button warning') %>
+      <a href="<%= path(@lists) %>" class="button secondary">Отмена</a>
+    </div>
+  </div>
+<% end %>

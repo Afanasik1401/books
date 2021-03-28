@@ -1,0 +1,26 @@
+---
+:stationery_list:
+- :id: 1
+  :title: Карандаш
+  :price: 14
+  :number: 2
+- :id: 2
+  :title: Ручка синяя
+  :price: 55
+  :number: 150
+- :id: 3
+  :title: Клей
+  :price: 120
+  :number: 30
+- :id: 4
+  :title: Ножницы
+  :price: 700
+  :number: 35
+- :id: 5
+  :title: Стирательная резинка
+  :price: 30
+  :number: 150
+- :id: 6
+  :title: Ручка красная
+  :price: 55
+  :number: 150

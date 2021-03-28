@@ -1,0 +1,12 @@
+<div class="grid-x">
+  <div class="cell large-12">
+    <h3>Информация о канцтоваре</h3>
+    <p>Название: <%= @stationery.title %></p>
+    <p>Цена: <%= @stationery.price %></p>
+    <p>Количество <%= @stationery.number %></p>
+    <a class="button" href="<%= path(@stationery, 'edit') %>">Редактировать</a>
+    <a class="button warning" href="<%= path(@stationery, 'delete') %>">Удалить</a>
+    <a class="button" href="<%= path(@stationery, 'add') %>">Добавить в список покупок </a>
+    <a class="button secondary" href="<%= all_stationery_path %>">Назад к списку канцтоваров</a>
+  </div>
+</div>

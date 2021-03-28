@@ -1,0 +1,16 @@
+<div class="grid-x">
+  <div class="cell large-12">
+    <h3>Информация о книге</h3>
+
+    <p>Название: <%= @book.title %></p>
+    <p>Автор: <%= @book.author %></p>
+    <p>Жанр <%= @book.genre %></p>
+    <p>Цена <%= @book.price %></p>
+    <p>Количество <%= @book.number %> </p>
+ 
+    <a class="button" href="<%= path(@book, 'edit') %>">Редактировать</a>
+    <a class="button warning" href="<%= path(@book, 'delete') %>">Удалить</a>
+    <a class="button" href="<%= path(@book, 'add') %>">Добавить в список покупок </a>
+    <a class="button " href="<%= all_books_path %>">Назад к списку книг</a>
+  </div>
+</div>
